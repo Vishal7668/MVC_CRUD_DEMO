@@ -2,10 +2,12 @@ package com.mvc.MVC_CRUD_API.Service;
 
 import com.mvc.MVC_CRUD_API.Dao.StudentDao;
 import com.mvc.MVC_CRUD_API.Model.Student;
+import com.mvc.MVC_CRUD_API.exception.StudentNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -34,7 +36,10 @@ public class StudentService {
         return "Roll Number is updated " +student.getStudentRollNo();
 
     }
-    public Student getStudent(int rollNo){
-        return dao.getById(rollNo);
+    public Optional<Student> getStudent(int rollNo){
+         if(dao.findById(rollNo).isEmpty())
+             throw new StudentNotFoundException("Student does not exits");
+
+        return dao.findById(rollNo);
     }
 }

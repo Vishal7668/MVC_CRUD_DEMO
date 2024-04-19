@@ -1,13 +1,13 @@
 package com.mvc.MVC_CRUD_API.exception;
 
-public class ClassNotFoundException extends RuntimeException{
+public class StudentNotFoundException extends RuntimeException{
 
-    public ClassNotFoundException(String message) {
+    public StudentNotFoundException(String message) {
         super(message);
     }
 
 
-    public ClassNotFoundException(String message, Throwable cause) {
+    public StudentNotFoundException(String message, Throwable cause) {
         super(message, cause);
     }
 }

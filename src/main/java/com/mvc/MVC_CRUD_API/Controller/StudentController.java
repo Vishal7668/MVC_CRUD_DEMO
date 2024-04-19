@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class StudentController {
@@ -35,7 +36,7 @@ public class StudentController {
     }
 
      @GetMapping("/all/{rollNo}")
-    public Student getStudent(@PathVariable int rollNo){
+    public Optional<Student> getStudent(@PathVariable int rollNo){
          return studentService.getStudent(rollNo);
     }
 
